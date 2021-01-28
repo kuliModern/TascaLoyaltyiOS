@@ -19,6 +19,8 @@ class RegisterViewController: UIViewController, GIDSignInDelegate {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var appleButton: UIButton!
+    
+    var tokenid: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         //Spinner is hidden
@@ -65,6 +67,8 @@ class RegisterViewController: UIViewController, GIDSignInDelegate {
         if let error = error {
             spinner.isHidden = false
             spinner.startAnimating()
+            
+            
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
               print("The user has not signed in before or they have since signed out.")
             } else {
@@ -81,10 +85,30 @@ class RegisterViewController: UIViewController, GIDSignInDelegate {
           let email = user.profile.email
         
         
-        
-        
-        
-        
+        let parameters: [String: Any] = [
+            "idToken" : idToken
+        ]
+       
+        AF.request("\(url.linkFaris)/api/gsignin", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response -> Void in
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+                
+                switch response.result{
+                case .success(let value):
+                    
+                    let json = JSON(value)
+                    let token = json["token"].stringValue
+                    print(response)
+                    debugPrint(token)
+                    
+                    self.tokenid = token
+                    print(self.tokenid)
+                    
+                case .failure(let error):
+                    print(error)
+                }
+
     }
     /*
     // MARK: - Navigation
@@ -96,4 +120,5 @@ class RegisterViewController: UIViewController, GIDSignInDelegate {
     }
     */
 
+}
 }

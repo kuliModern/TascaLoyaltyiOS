@@ -1,8 +1,3 @@
-//
-//  URL.swift
-//  TascaLoyalty
-//
-//  Created by Azka Kusuma Edy on 26/01/21.
-//
-
-import Foundation
+struct url{
+    static let linkFaris = "https://0562f0b372cb.ngrok.io"
+}

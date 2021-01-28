@@ -3,19 +3,43 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		268088B7C0C97030D38CDF79 /* Pods_TascaLoyalty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C90B0B495D8FF58349B3DDB /* Pods_TascaLoyalty.framework */; };
+		BB0F47F025BAAD9000A8AD04 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0F47EF25BAAD9000A8AD04 /* Gender.swift */; };
+		BB1011C925C051360072ED93 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1011C825C051360072ED93 /* URL.swift */; };
+		BB1011CD25C05F8D0072ED93 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1011CC25C05F8D0072ED93 /* HomeViewController.swift */; };
+		BB341EF825BDE32900DF27C6 /* LogInEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB341EF725BDE32900DF27C6 /* LogInEmailViewController.swift */; };
+		BB44F69825B94E2C001043D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB44F69725B94E2C001043D2 /* GoogleService-Info.plist */; };
+		BB7E7E7625B9E722007E1892 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E7E7525B9E722007E1892 /* DatabaseViewController.swift */; };
+		BB85D4C525C06E63001D5236 /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85D4C425C06E63001D5236 /* VoucherViewController.swift */; };
+		BB9CF65425B87D910073168B /* RegisterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9CF65325B87D910073168B /* RegisterEmailViewController.swift */; };
 		BBC7160D25B8314E00940CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC7160C25B8314E00940CFC /* AppDelegate.swift */; };
 		BBC7160F25B8314E00940CFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC7160E25B8314E00940CFC /* SceneDelegate.swift */; };
 		BBC7161125B8314E00940CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC7161025B8314E00940CFC /* ViewController.swift */; };
 		BBC7161425B8314E00940CFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC7161225B8314E00940CFC /* Main.storyboard */; };
 		BBC7161625B8314F00940CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBC7161525B8314F00940CFC /* Assets.xcassets */; };
 		BBC7161925B8314F00940CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC7161725B8314F00940CFC /* LaunchScreen.storyboard */; };
+		BBC7162A25B83E8E00940CFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC7162925B83E8E00940CFC /* LoginViewController.swift */; };
+		BBC7162E25B83EAD00940CFC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC7162D25B83EAD00940CFC /* RegisterViewController.swift */; };
+		BBF0CAFB25C317A3008515E5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0CAFA25C317A3008515E5 /* TableViewController.swift */; };
+		BBF37A5D25BDC1B500B607A7 /* ActivationNumberEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF37A5C25BDC1B500B607A7 /* ActivationNumberEmailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C90B0B495D8FF58349B3DDB /* Pods_TascaLoyalty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TascaLoyalty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A04297FE4A173362F6E1B0D /* Pods-TascaLoyalty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TascaLoyalty.release.xcconfig"; path = "Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty.release.xcconfig"; sourceTree = "<group>"; };
+		BB0E091C25BEBFB100724C30 /* TascaLoyalty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TascaLoyalty-Bridging-Header.h"; sourceTree = "<group>"; };
+		BB0F47EF25BAAD9000A8AD04 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		BB1011C825C051360072ED93 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		BB1011CC25C05F8D0072ED93 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BB341EF725BDE32900DF27C6 /* LogInEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInEmailViewController.swift; sourceTree = "<group>"; };
+		BB44F69725B94E2C001043D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BB7E7E7525B9E722007E1892 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
+		BB85D4C425C06E63001D5236 /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
+		BB9CF65325B87D910073168B /* RegisterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailViewController.swift; sourceTree = "<group>"; };
 		BBC7160925B8314E00940CFC /* TascaLoyalty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TascaLoyalty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC7160C25B8314E00940CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC7160E25B8314E00940CFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +48,11 @@
 		BBC7161525B8314F00940CFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBC7161825B8314F00940CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBC7161A25B8314F00940CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBC7162925B83E8E00940CFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BBC7162D25B83EAD00940CFC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		BBF0CAFA25C317A3008515E5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		BBF37A5C25BDC1B500B607A7 /* ActivationNumberEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationNumberEmailViewController.swift; sourceTree = "<group>"; };
+		C3C0FEFB83ECA0D0E77123D5 /* Pods-TascaLoyalty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TascaLoyalty.debug.xcconfig"; path = "Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +60,70 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				268088B7C0C97030D38CDF79 /* Pods_TascaLoyalty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53D2D31C5CAF9FE364014ACF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C90B0B495D8FF58349B3DDB /* Pods_TascaLoyalty.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		664AF1E625FF276B993CF572 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3C0FEFB83ECA0D0E77123D5 /* Pods-TascaLoyalty.debug.xcconfig */,
+				7A04297FE4A173362F6E1B0D /* Pods-TascaLoyalty.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BB0F47F225BAAD9600A8AD04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB0F47EF25BAAD9000A8AD04 /* Gender.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB0F47F525BAAF2000A8AD04 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				BBC7161225B8314E00940CFC /* Main.storyboard */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		BB1011CF25C05F930072ED93 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BB85D4C325C06E48001D5236 /* Voucher */,
+				BB1011CC25C05F8D0072ED93 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BB85D4C325C06E48001D5236 /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				BB85D4C425C06E63001D5236 /* VoucherViewController.swift */,
+			);
+			path = Voucher;
+			sourceTree = "<group>";
+		};
 		BBC7160025B8314E00940CFC = {
 			isa = PBXGroup;
 			children = (
 				BBC7160B25B8314E00940CFC /* TascaLoyalty */,
 				BBC7160A25B8314E00940CFC /* Products */,
+				664AF1E625FF276B993CF572 /* Pods */,
+				53D2D31C5CAF9FE364014ACF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +140,57 @@
 			children = (
 				BBC7160C25B8314E00940CFC /* AppDelegate.swift */,
 				BBC7160E25B8314E00940CFC /* SceneDelegate.swift */,
-				BBC7161025B8314E00940CFC /* ViewController.swift */,
-				BBC7161225B8314E00940CFC /* Main.storyboard */,
+				BBEEC26625BFC90000261D6E /* URL */,
+				BBFEF66325BEF5DD002FCE68 /* LogIn */,
+				BBFEF66225BEF5D7002FCE68 /* SignIn */,
+				BB1011CF25C05F930072ED93 /* Home */,
+				BBC7162725B83E7700940CFC /* Controller */,
+				BB0F47F525BAAF2000A8AD04 /* VIew */,
+				BB0F47F225BAAD9600A8AD04 /* Models */,
 				BBC7161525B8314F00940CFC /* Assets.xcassets */,
 				BBC7161725B8314F00940CFC /* LaunchScreen.storyboard */,
 				BBC7161A25B8314F00940CFC /* Info.plist */,
+				BB44F69725B94E2C001043D2 /* GoogleService-Info.plist */,
+				BB0E091C25BEBFB100724C30 /* TascaLoyalty-Bridging-Header.h */,
 			);
 			path = TascaLoyalty;
+			sourceTree = "<group>";
+		};
+		BBC7162725B83E7700940CFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BBC7161025B8314E00940CFC /* ViewController.swift */,
+				BBF0CAFA25C317A3008515E5 /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BBEEC26625BFC90000261D6E /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				BB1011C825C051360072ED93 /* URL.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		BBFEF66225BEF5D7002FCE68 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				BBC7162D25B83EAD00940CFC /* RegisterViewController.swift */,
+				BB341EF725BDE32900DF27C6 /* LogInEmailViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		BBFEF66325BEF5DD002FCE68 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				BBC7162925B83E8E00940CFC /* LoginViewController.swift */,
+				BB9CF65325B87D910073168B /* RegisterEmailViewController.swift */,
+				BBF37A5C25BDC1B500B607A7 /* ActivationNumberEmailViewController.swift */,
+				BB7E7E7525B9E722007E1892 /* DatabaseViewController.swift */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBC7161D25B8314F00940CFC /* Build configuration list for PBXNativeTarget "TascaLoyalty" */;
 			buildPhases = (
+				45EE73CC02133752AE6F8C2F /* [CP] Check Pods Manifest.lock */,
 				BBC7160525B8314E00940CFC /* Sources */,
 				BBC7160625B8314E00940CFC /* Frameworks */,
 				BBC7160725B8314E00940CFC /* Resources */,
+				17DC4B4D9D238743AB935BC9 /* [CP] Embed Pods Frameworks */,
+				97F069431213198FDCE0DDB5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -98,6 +227,7 @@
 				TargetAttributes = {
 					BBC7160825B8314E00940CFC = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 				};
 			};
@@ -125,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC7161925B8314F00940CFC /* LaunchScreen.storyboard in Resources */,
+				BB44F69825B94E2C001043D2 /* GoogleService-Info.plist in Resources */,
 				BBC7161625B8314F00940CFC /* Assets.xcassets in Resources */,
 				BBC7161425B8314E00940CFC /* Main.storyboard in Resources */,
 			);
@@ -132,14 +263,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17DC4B4D9D238743AB935BC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45EE73CC02133752AE6F8C2F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TascaLoyalty-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97F069431213198FDCE0DDB5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TascaLoyalty/Pods-TascaLoyalty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BBC7160525B8314E00940CFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC7162A25B83E8E00940CFC /* LoginViewController.swift in Sources */,
+				BBF0CAFB25C317A3008515E5 /* TableViewController.swift in Sources */,
+				BBC7162E25B83EAD00940CFC /* RegisterViewController.swift in Sources */,
+				BB9CF65425B87D910073168B /* RegisterEmailViewController.swift in Sources */,
+				BB1011C925C051360072ED93 /* URL.swift in Sources */,
 				BBC7161125B8314E00940CFC /* ViewController.swift in Sources */,
+				BB0F47F025BAAD9000A8AD04 /* Gender.swift in Sources */,
+				BB85D4C525C06E63001D5236 /* VoucherViewController.swift in Sources */,
+				BB341EF825BDE32900DF27C6 /* LogInEmailViewController.swift in Sources */,
+				BB7E7E7625B9E722007E1892 /* DatabaseViewController.swift in Sources */,
 				BBC7160D25B8314E00940CFC /* AppDelegate.swift in Sources */,
+				BBF37A5D25BDC1B500B607A7 /* ActivationNumberEmailViewController.swift in Sources */,
 				BBC7160F25B8314E00940CFC /* SceneDelegate.swift in Sources */,
+				BB1011CD25C05F8D0072ED93 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,37 +484,46 @@
 		};
 		BBC7161E25B8314F00940CFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3C0FEFB83ECA0D0E77123D5 /* Pods-TascaLoyalty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TascaLoyalty/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Azkake.TascaLoyalty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TascaLoyalty/TascaLoyalty-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		BBC7161F25B8314F00940CFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A04297FE4A173362F6E1B0D /* Pods-TascaLoyalty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TascaLoyalty/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Azkake.TascaLoyalty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TascaLoyalty/TascaLoyalty-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

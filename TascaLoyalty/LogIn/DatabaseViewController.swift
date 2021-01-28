@@ -77,7 +77,7 @@ class DatabaseViewController: UIViewController {
         
      
 
-        let urlString   = "https://c5d33bab53d9.ngrok.io/api/editdata"
+        let urlString   = "\(url.linkFaris)/api/editdata"
         let parameters  = ["name": name,
                            "birthday": birthday,
                            "gender": gender,
@@ -97,6 +97,8 @@ class DatabaseViewController: UIViewController {
             
             print("Validation Successful")
             print(response)
+            
+            
             
           case let .failure(error):
             

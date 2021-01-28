@@ -58,6 +58,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     
     
+    @IBAction func testing1(_ sender: Any) {
+        self.performSegue(withIdentifier: "DatabaseToHome", sender: self)
+    }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
@@ -83,7 +86,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             "idToken" : idToken
         ]
        
-        AF.request("https://c5d33bab53d9.ngrok.io/api/gsignin", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request("\(url.linkFaris)/api/gsignin", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response -> Void in
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
@@ -93,10 +96,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                     
                     let json = JSON(value)
                     let token = json["token"].stringValue
+                    print(response)
                     debugPrint(token)
                     
                     self.tokenid = token
-                    print(self.tokenid)
+                   
                     
                     self.performSegue(withIdentifier: "LoginToDatabase", sender: self)
                     

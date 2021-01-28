@@ -6,10 +6,10 @@
 //
 
 import Foundation
-
+protocol prepareNembakDelegate {
+    func siapNembak(name: String, nomerTelfon: String, birthDate: String, gender: String, password: String)
+}
 struct Gender {
-    
-  
-    
-    var gender = ["Cowok", "Cewek"]
+
+    var gender = ["","Cowok", "Cewek"]
 }

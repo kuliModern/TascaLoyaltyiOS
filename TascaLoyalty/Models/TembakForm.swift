@@ -6,3 +6,12 @@
 //
 
 import Foundation
+struct TembakForm{
+    func tembakGender(gender: String){
+        
+        
+        
+    }
+    
+    
+}
