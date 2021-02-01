@@ -9,7 +9,10 @@ import UIKit
 import SwipeableTabBarController
 
 class TableViewController: SwipeableTabBarController {
-
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -17,8 +20,18 @@ class TableViewController: SwipeableTabBarController {
         // Swipe between VC
         swipeAnimatedTransitioning?.animationType = SwipeAnimationType.sideBySide
         isCyclingEnabled = true
+        
+        
+        
      
     }
+    override func viewWillLayoutSubviews() {
+           super.viewWillLayoutSubviews()
+
+          
+        }
 }
+
+
     
     

@@ -10,6 +10,7 @@ target 'TascaLoyalty' do
   pod 'IQKeyboardManagerSwift'
   pod 'AlamofireImage', '~> 4.1'
   pod 'SwipeableTabBarController'
+  pod "ViewAnimator"
  
 
   

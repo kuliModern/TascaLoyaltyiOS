@@ -22,6 +22,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.6)
   - SwiftyJSON (4.3.0)
   - SwipeableTabBarController (3.3.0)
+  - ViewAnimator (3.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - SwiftyJSON (~> 4.0)
   - SwipeableTabBarController
+  - ViewAnimator
 
 SPEC REPOS:
   trunk:
@@ -42,6 +44,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - SwiftyJSON
     - SwipeableTabBarController
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -53,7 +56,8 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   SwipeableTabBarController: c815145a8d8f880d1a329044e5cf6e99c1c973e7
+  ViewAnimator: 16435576cd44fca0b0d63147d5031fd3e91d295a
 
-PODFILE CHECKSUM: dbaae60e4a989350c1b6938acc864fc0f5399b11
+PODFILE CHECKSUM: ac8f70d0ed20b13d230757e5bd8c2d98646f78f9
 
 COCOAPODS: 1.10.1

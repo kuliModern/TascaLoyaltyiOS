@@ -59,8 +59,16 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     
     
     @IBAction func testing1(_ sender: Any) {
-        self.performSegue(withIdentifier: "DatabaseToHome", sender: self)
-    }
+       
+               // Menu has been dismissed, but before it is destroyed
+               //  it calls performSegue on Origin
+            self.performSegue(withIdentifier: "DatabaseToHome", sender: self)
+            
+           
+}
+    
+    
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {

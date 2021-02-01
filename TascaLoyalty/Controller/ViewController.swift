@@ -27,33 +27,51 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //round corner
+        
+            if  daftarButton != nil, masukButton != nil{
+            daftarButton.layer.cornerRadius = 30
+            masukButton.layer.cornerRadius = 30
+                // Outer Color
+                
+            masukButton.layer.borderWidth = 3
+            masukButton.layer.borderColor = #colorLiteral(red: 0.9999516606, green: 0.8314109445, blue: 0.0001840102777, alpha: 1)
+                
+            }
+
+       
+        
+    }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+     
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
-        // round corner
-        daftarButton.layer.cornerRadius = 35
-        masukButton.layer.cornerRadius = 35
-        // Outer Color
-        masukButton.layer.borderWidth = 3
-        masukButton.layer.borderColor = #colorLiteral(red: 0.9999516606, green: 0.8314109445, blue: 0.0001840102777, alpha: 1)
+        
     }
-    
+
     @objc func changeImage() {
-     
+
      if counter < images.count {
          let index = IndexPath.init(item: counter, section: 0)
-         self.myCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-         counter += 1
+            if myCollectionView != nil{
+            self.myCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            counter += 1
+        }
+         
      } else {
          counter = 0
          let index = IndexPath.init(item: counter, section: 0)
          self.myCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-       
+
          counter = 1
      }
     }
+        
 }
+
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -88,6 +106,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return 0.0
     }
 }
+
 
 
 

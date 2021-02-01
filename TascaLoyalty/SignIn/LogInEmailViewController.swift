@@ -71,8 +71,12 @@ class LogInEmailViewController: UIViewController {
             print("------")
             
             // Parse dari JSON buat ambil Messagenya
-            self.tokenUser = json["token"].string ?? ""
-            debugPrint(self.tokenUser)
+            let parsing = json["token"].string ?? ""
+            debugPrint(parsing)
+            self.tokenUser = parsing
+            print(self.tokenUser)
+            
+            self.performSegue(withIdentifier: "LoginToHome", sender: self)
             
           case let .failure(error):
             print(error)
@@ -91,4 +95,14 @@ class LogInEmailViewController: UIViewController {
     */
 
 }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LoginToHome"{
+            let custMainVC = segue.destination as! UITabBarController
+            let res = custMainVC.viewControllers!.first as! HomeViewController
+            res.tokenID = self.tokenUser
+        }
+        
+        
+    }
 }
+
