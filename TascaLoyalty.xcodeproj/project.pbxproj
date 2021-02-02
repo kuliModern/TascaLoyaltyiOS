@@ -13,8 +13,10 @@
 		BB1011CD25C05F8D0072ED93 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1011CC25C05F8D0072ED93 /* HomeViewController.swift */; };
 		BB28346B25C83507003F1ABF /* userToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28346A25C83507003F1ABF /* userToken.swift */; };
 		BB2B4C4025C520CF00FAC9DA /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B4C3F25C520CF00FAC9DA /* CardTableViewCell.swift */; };
+		BB31D3A125C904C000F9CD73 /* CardVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31D3A025C904C000F9CD73 /* CardVoucherTableViewCell.swift */; };
 		BB341EF825BDE32900DF27C6 /* LogInEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB341EF725BDE32900DF27C6 /* LogInEmailViewController.swift */; };
 		BB44F69825B94E2C001043D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB44F69725B94E2C001043D2 /* GoogleService-Info.plist */; };
+		BB46C4CE25C97ED500DB4C24 /* VoucherAfterPressedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB46C4CD25C97ED500DB4C24 /* VoucherAfterPressedViewController.swift */; };
 		BB64DBE225C3FD520049AEA9 /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB64DBE125C3FD520049AEA9 /* CouponViewController.swift */; };
 		BB7E7E7625B9E722007E1892 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E7E7525B9E722007E1892 /* DatabaseViewController.swift */; };
 		BB85D4C525C06E63001D5236 /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85D4C425C06E63001D5236 /* VoucherViewController.swift */; };
@@ -41,8 +43,10 @@
 		BB1011CC25C05F8D0072ED93 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BB28346A25C83507003F1ABF /* userToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userToken.swift; sourceTree = "<group>"; };
 		BB2B4C3F25C520CF00FAC9DA /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		BB31D3A025C904C000F9CD73 /* CardVoucherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVoucherTableViewCell.swift; sourceTree = "<group>"; };
 		BB341EF725BDE32900DF27C6 /* LogInEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInEmailViewController.swift; sourceTree = "<group>"; };
 		BB44F69725B94E2C001043D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BB46C4CD25C97ED500DB4C24 /* VoucherAfterPressedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherAfterPressedViewController.swift; sourceTree = "<group>"; };
 		BB64DBE125C3FD520049AEA9 /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
 		BB7E7E7525B9E722007E1892 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
 		BB85D4C425C06E63001D5236 /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				BB85D4C425C06E63001D5236 /* VoucherViewController.swift */,
+				BB31D3A025C904C000F9CD73 /* CardVoucherTableViewCell.swift */,
+				BB46C4CD25C97ED500DB4C24 /* VoucherAfterPressedViewController.swift */,
 			);
 			path = Voucher;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB31D3A125C904C000F9CD73 /* CardVoucherTableViewCell.swift in Sources */,
 				BBC7162A25B83E8E00940CFC /* LoginViewController.swift in Sources */,
 				BBF0CAFB25C317A3008515E5 /* TableViewController.swift in Sources */,
 				BB64DBE225C3FD520049AEA9 /* CouponViewController.swift in Sources */,
@@ -363,6 +370,7 @@
 				BBC7160D25B8314E00940CFC /* AppDelegate.swift in Sources */,
 				BBF37A5D25BDC1B500B607A7 /* ActivationNumberEmailViewController.swift in Sources */,
 				BBC7160F25B8314E00940CFC /* SceneDelegate.swift in Sources */,
+				BB46C4CE25C97ED500DB4C24 /* VoucherAfterPressedViewController.swift in Sources */,
 				BB1011CD25C05F8D0072ED93 /* HomeViewController.swift in Sources */,
 				BB2B4C4025C520CF00FAC9DA /* CardTableViewCell.swift in Sources */,
 			);

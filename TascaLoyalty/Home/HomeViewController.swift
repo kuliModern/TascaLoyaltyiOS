@@ -17,13 +17,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-       print(tokenID!)
+       print(tokenID)
         // Passing ke Coupon
         let navController = self.tabBarController!.viewControllers![2] as! UINavigationController
-        let vc = navController.topViewController as! CouponViewController
-        vc.tokenID = self.tokenID
+        let cp = navController.topViewController as! CouponViewController
+        cp.tokenID = self.tokenID
         
         // Passing ke Voucher
+        let voucher = self.tabBarController!.viewControllers![1] as! UINavigationController
+        let vc = voucher.topViewController as! VoucherViewController
+        vc.tokenID = self.tokenID
        
     }
     

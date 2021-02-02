@@ -40,12 +40,12 @@ class CouponViewController: UIViewController{
      
         // Do any additional setup after loading the view.
         
-        print(tokenID!)
+        print(tokenID)
         
         let urlString   = "\(url.linkFaris)//"
         
         let headers: HTTPHeaders = [ "Accept": "application/json",
-                                     "Authorization": "Bearer \(tokenID!)"
+                                     "Authorization": "Bearer \(tokenID)"
         
         ]
 
