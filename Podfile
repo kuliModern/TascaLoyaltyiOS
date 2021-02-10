@@ -11,6 +11,7 @@ target 'TascaLoyalty' do
   pod 'AlamofireImage', '~> 4.1'
   pod 'SwipeableTabBarController'
   pod "ViewAnimator"
+  pod 'SCLAlertView'
  
 
   

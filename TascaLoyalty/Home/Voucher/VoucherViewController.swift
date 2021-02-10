@@ -11,44 +11,85 @@ import AlamofireImage
 import SwiftyJSON
 
 class VoucherViewController: UIViewController {
-    var tokenID: String?
     
-    var testing1 = VoucherAfterPressedViewController()
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var myTable: UITableView!
+    @IBOutlet weak var filterbyBrandButton: UIButton!
     
-    var gambarVoucher = [ UIImage(named: "maumere"),
-                          UIImage(named: "menu"),
-                          UIImage(named: "freemilk")
-    ]
+    
+    
+    var tokenID: String?
+    var testing1 = VoucherAfterPressedViewController()
+    
+    
     var id = [String]()
     var validUntil = [String]()
-
+    var checkX: [Int] = []
     var hargaPoin = [String]()
 
+    var test: Int?
+    
     var namaRestoran = [String]()
+    var filtered: [String] = []
+    var filtering: [String] = []
+    var filterBrands: String?
     
     var jenisVoucher = [String]()
+    var filteredJenisVoucher: [String] = []
 
     var photos = [String]()
     
     var deskripsiVoucher = [String]()
     
+    var userPointSebelumDipotong: Int?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.myTable.delegate = self
-        self.myTable.dataSource = self
-        
-       
-        print("\(tokenID!) dari Voucher")
-        parseJSON()
+   
+     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        spinner.isHidden = true
+        
+        
+        self.myTable.delegate = self
+        self.myTable.dataSource = self
+ 
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+     
+        filterbyBrandButton.layer.masksToBounds = true
+        filterbyBrandButton.layer.cornerRadius = 20
+        
+       
+        print("\(tokenID!) dari Voucher")
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = false
+        parseJSON()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        // apus arraynya kalo user udah pindah screen
+        namaRestoran.removeAll()
+        validUntil.removeAll()
+        deskripsiVoucher.removeAll()
+        jenisVoucher.removeAll()
+        hargaPoin.removeAll()
+        photos.removeAll()
+        filtering.removeAll()
+        
+    }
     
     
-    
-        // Nembak ke Faris
+    // Nembak ke Faris
     func parseJSON(){
         let urlString   = "\(url.linkFaris)/api/getcoupon"
         
@@ -67,12 +108,17 @@ class VoucherViewController: UIViewController {
             let json = JSON(value)
             var count = json["coupons"].count
            
-          
+            // Parsing user point
+            let poinUser = json[ "User Points"].intValue
+            self.userPointSebelumDipotong = poinUser
+           
             
             // Nama Restoran
             for x in 0...count - 1{
                 let nameRestoJson = json["coupons"][x]["restaurant_id"]["name"].stringValue
                 self.namaRestoran.append("\(nameRestoJson)")
+                self.filtering.append("\(nameRestoJson)")
+                
                
             }
             
@@ -127,43 +173,90 @@ class VoucherViewController: UIViewController {
            
         }
     }
-        
-        
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.tabBarController?.tabBar.isHidden = false
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "filterByBrand"{
+            if let destinationVC = segue.destination as? FilterByBrandViewController{
+                destinationVC.brands = { newBrands in
+                    print(newBrands)
+                    self.filterBrands = newBrands
+                    self.filterbyBrandButton.setTitle("Filter by \(newBrands)", for: .normal)
+                  
+                    
+                    for x in 0...self.namaRestoran.count - 1{
+                    if self.namaRestoran[x] == newBrands{
+                            self.filtered.append(self.namaRestoran[x])
+                        //buat nyari dia index ke berapa yang sesuai sama filter
+                        self.checkX.append(x)
+          
+                    }
+                        if newBrands == "Brand"{
+                            self.filtered.append(self.namaRestoran[x])
+                            
+                            //kalo filter diilangin, append semuanya jadi kek normal
+                            self.checkX.append(x)
+                        }
+                        
+                    }
+                  
+                  // buat count berapa cellnya
+                    self.filtering = self.filtered
+                    
+                    // Reload Data yang ada di cell
+                    self.myTable.reloadData()
+                }
+               // diapus filteringnya biar kembali ke 0 buat di append sama nama restoran
+                self.filtering.removeAll()
+                // di append ke nama restoran
+                self.filtering = self.namaRestoran
+                // abis di append, tempnya diapus buat kalo user mencet berikutnya
+                self.filtered.removeAll()
+                // abis reload data buat array index-nya diapus buat usernya kalo mau mencet berikutnya
+                self.checkX.removeAll()
+                
+                
+            }
+        }
     }
-
-    
 }
     
 extension VoucherViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        return id.count
-        
+            return filtering.count
+   
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardVoucher", for: indexPath) as! CardVoucherTableViewCell
         
-        //cell.gambarRestoran.image = gambarVoucher[indexPath.row]
-        cell.durasiVoucher.text = validUntil[indexPath.row]
-        cell.namaRestoran.text = namaRestoran[indexPath.row]
-        cell.hargaVoucher.text = hargaPoin[indexPath.row]
-        cell.jenisVoucher.text = jenisVoucher[indexPath.row]
+        // kalo arraynya si checkX itu kosong ( baru pertama ) itu kayak normal
+        if checkX.isEmpty{
+            
+                cell.namaRestoran.text = namaRestoran[indexPath.row]
+                cell.jenisVoucher.text = jenisVoucher[indexPath.row]
+                cell.durasiVoucher.text = validUntil[indexPath.row]
+                cell.hargaVoucher.text = hargaPoin[indexPath.row]
+            
+        }
         
-        
-        
-      
+        // kalo si user udah klik filternya, array si CheckX bakal keisi dan sesuai sama arraynya
+        else{
+           // print(checkX[indexPath.row])
+            test = checkX[indexPath.row]
+            cell.namaRestoran.text = namaRestoran[test!]
+            cell.jenisVoucher.text = jenisVoucher[test!]
+            cell.durasiVoucher.text = validUntil[test!]
+            cell.hargaVoucher.text = hargaPoin[test!]
+        }
+
         // Image
         
         AF.request(photos[indexPath.row]).responseImage { response in
             //debugPrint(response)
             if case .success(let image) = response.result{
                 DispatchQueue.main.async {
-                    print(image)
+                    //print(image)
                     cell.gambarRestoran.image = image
                     self.testing1.gambarVouchernya = image
                     
@@ -174,11 +267,22 @@ extension VoucherViewController: UITableViewDelegate, UITableViewDataSource{
             
         }
         
+        cell.alpha = 0
+
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.05 * Double(indexPath.row),
+            animations: {
+                cell.alpha = 1
+        })
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
         let vc = storyboard?.instantiateViewController(identifier: "VoucherAfterPressed") as! VoucherAfterPressedViewController
         
         // Parse Image ke VC berikutnya
@@ -192,17 +296,33 @@ extension VoucherViewController: UITableViewDelegate, UITableViewDataSource{
                 }
                 
             }
+            if self.checkX.isEmpty{
             vc.hargaPoints = self.hargaPoin[indexPath.row]
             vc.namaRestorannya = self.namaRestoran[indexPath.row]
             vc.durasinya = self.validUntil[indexPath.row]
             vc.deskripsiVoucher = self.deskripsiVoucher[indexPath.row]
+            vc.jenisVoucher = self.jenisVoucher[indexPath.row]
+            }
+            else{
+                self.test = self.checkX[indexPath.row]
+                vc.hargaPoints = self.hargaPoin[self.test!]
+                vc.namaRestorannya = self.namaRestoran[self.test!]
+                vc.durasinya = self.validUntil[self.test!]
+                vc.deskripsiVoucher = self.deskripsiVoucher[self.test!]
+                vc.jenisVoucher = self.jenisVoucher[self.test!]
+            }
+            
             vc.idCoupon = self.id[indexPath.row]
+            // user point
+            vc.userPointSebelumDipotong = self.userPointSebelumDipotong
             
             // User TOken
             
             vc.tokenUser = self.tokenID
             
         self.navigationController?.pushViewController(vc, animated: true)
+            self.spinner.isHidden = true
+            self.spinner.stopAnimating()
     }
 }
     
@@ -222,3 +342,5 @@ extension VoucherViewController: UITableViewDelegate, UITableViewDataSource{
 
 
 }
+
+

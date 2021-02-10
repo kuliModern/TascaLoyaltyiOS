@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
        print(tokenID)
@@ -22,6 +24,7 @@ class HomeViewController: UIViewController {
         let navController = self.tabBarController!.viewControllers![2] as! UINavigationController
         let cp = navController.topViewController as! CouponViewController
         cp.tokenID = self.tokenID
+        
         
         // Passing ke Voucher
         let voucher = self.tabBarController!.viewControllers![1] as! UINavigationController

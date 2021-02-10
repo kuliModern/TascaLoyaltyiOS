@@ -29,6 +29,12 @@ class AfterPressedViewController: ViewController {
     var jenisDiskonRestoran = ""
     var durasiDiskonRestoran = ""
     
+    
+    
+    // Array buat outletnya
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // UI Button
@@ -80,3 +86,5 @@ class AfterPressedViewController: ViewController {
     */
 
 }
+
+

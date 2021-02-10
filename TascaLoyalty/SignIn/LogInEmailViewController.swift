@@ -10,6 +10,8 @@ import Alamofire
 import SwiftyJSON
 
 class LogInEmailViewController: UIViewController {
+    let homeVC = HomeViewController()
+    
     @IBOutlet weak var botVIew: UIView!
     
     @IBOutlet weak var emailText: UITextField!
@@ -74,16 +76,33 @@ class LogInEmailViewController: UIViewController {
             let parsing = json["token"].string ?? ""
             debugPrint(parsing)
             self.tokenUser = parsing
-            print(self.tokenUser)
+            print("\(self.tokenUser) ini token user")
             
-            self.performSegue(withIdentifier: "LoginToHome", sender: self)
-            
+            // Conditional ngecek apakah emailnya udah keregister apa belom
+            // ini tokennya kosong, artinya invalid credetials
+            if self.tokenUser == ""{
+                let alert = UIAlertController(title: "Invalid Credentials!", message: "Email atau password yang anda masukan salah ", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Coba Lagi", style: .default, handler: nil))
+                
+                self.present(alert, animated: true)
+                
+                // ini kalo tokennya ada, berarti credentialsnya ada
+            }else{
+                self.performSegue(withIdentifier: "LoginToHome", sender: self)
+            }
+  
           case let .failure(error):
             print(error)
+            
+            // ini kalo error dari servernya
+            let alertError = UIAlertController(title: "Server Error", message: "\(error)", preferredStyle: .alert)
+            alertError.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alertError, animated: true)
 
           }
     }
-
+        //self.view.window!.rootViewController = homeVC
     /*
     // MARK: - Navigation
 
@@ -100,6 +119,7 @@ class LogInEmailViewController: UIViewController {
             let custMainVC = segue.destination as! UITabBarController
             let res = custMainVC.viewControllers!.first as! HomeViewController
             res.tokenID = self.tokenUser
+            
         }
         
         

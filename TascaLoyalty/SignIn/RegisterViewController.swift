@@ -105,6 +105,9 @@ class RegisterViewController: UIViewController, GIDSignInDelegate {
                     self.tokenid = token
                     print(self.tokenid)
                     
+                    self.performSegue(withIdentifier: "GoogleToHome", sender: self)
+                    
+                    
                 case .failure(let error):
                     print(error)
                 }
@@ -121,4 +124,14 @@ class RegisterViewController: UIViewController, GIDSignInDelegate {
     */
 
 }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoogleToHome"{
+            let custMainVC = segue.destination as! UITabBarController
+            let res = custMainVC.viewControllers!.first as! HomeViewController
+            res.tokenID = self.tokenid
+            
+        }
+        
+        
+    }
 }

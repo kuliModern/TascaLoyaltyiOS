@@ -1,3 +1,3 @@
 struct url{
-    static let linkFaris = "https://a50dfb8b18f4.ngrok.io"
+    static let linkFaris = "https://dc9793e0b93a.ngrok.io"
 }

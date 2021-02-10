@@ -11,72 +11,86 @@ import SwiftyJSON
 
 class CouponViewController: UIViewController{
     
-    var selectedIndex = 0
+   
     var tokenID: String?
   
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var testLabel: UILabel!
-    let images = [UIImage(named: "freemilk"),
-                  UIImage(named: "menu"),
-                  UIImage(named: "maumere")
-    ]
-    let name = ["freemilk", "menu", "maumere"]
     
-    let namaRestoran = ["Maumere",
-                        "Maumere",
-                        "Freemilk"
-    ]
     
-    let jenisDiskon = ["GOJEK",
-                       "Grab",
-                       "Tokopedia"
-    ]
+    var images = [String]()
+    
+    var namaRestoran: [String] = []
+    
     var durasi = [String]()
     
-    var testArray = [String]()
+    var namaPromo = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        // Do any additional setup after loading the view.
-        
-        print(tokenID)
-        
-        let urlString   = "\(url.linkFaris)//"
-        
-        let headers: HTTPHeaders = [ "Accept": "application/json",
-                                     "Authorization": "Bearer \(tokenID)"
-        
-        ]
 
-        AF.request(urlString, method: .get, encoding:  URLEncoding.queryString, headers: headers).responseJSON { response in
-          switch response.result {
-          case .success(let value):
-           
-            
-            print("Validation Successful")
-            print(response)
-            let json = JSON(value)
-            let count = json["coupons"].count
-            
-            print(count)
-            // Iterate Durasinya
-            for _ in 0...count{
-            let StringBaru = json["coupons"][count - 1]["expiry_date"].string
-
-                self.durasi.append("\(StringBaru!)")
-            }
-            
-            
-          case let .failure(error):
-            
-            print(error)
-           
-          }
-            
-        }
+        print("\(tokenID) dari coupon")
+        
     }
-   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        parseJSON()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        namaPromo.removeAll()
+        durasi.removeAll()
+        namaRestoran.removeAll()
+        images.removeAll()
+        
+    }
+    
+    func parseJSON(){
+            let urlString   = "\(url.linkFaris)/api/getpromotion"
+    
+            let headers: HTTPHeaders = [ "Accept": "application/json",
+                                 "Authorization": "Bearer \(tokenID!)"
+    
+    ]
+
+            AF.request(urlString, method: .get, encoding:  URLEncoding.queryString, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+       
+        
+                    print("Validation Successful")
+                    print(response)
+                    let json = JSON(value)
+                    var counting = json["promotions"].count
+                    
+                    
+                    for x in 0...counting - 1{
+                        var namaVoucher = json["promotions"][x]["name"].stringValue
+                        self.namaPromo.append("\(namaVoucher)")
+                        
+                        var namaResto = json["promotions"][x]["restaurant_id"]["name"].stringValue
+                        self.namaRestoran.append("\(namaResto)")
+                        
+                        var durasiPromo = json["promotions"][x]["expiry_date"].stringValue
+                        self.durasi.append("\(durasiPromo)")
+                        
+                        var fotoPromo = json["promotions"][x]["path_photo"].stringValue
+                        self.images.append("\(fotoPromo)")
+                    }
+                    
+                   
+                    self.tableView.reloadData()
+                    
+                case let .failure(error):
+        
+                    print(error)
+       
+      }
+        
+    }
+}
    
     /*
     // MARK: - Navigation
@@ -94,20 +108,31 @@ extension CouponViewController: UITableViewDelegate, UITableViewDataSource{
    
     // JUmlah Cellnya ada berapa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count
+        return namaPromo.count
     }
     
     // Isi cellnya itu 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardTableViewCell
         
-        // diganti dari yang CardTableView
-        cell.myImageVIew.image = UIImage(named: name[indexPath.row])
-       // cell.durasiDiskon.text = durasi[indexPath.row]
-        cell.jenisDiskon.text = jenisDiskon[indexPath.row]
-       cell.namaRestoran.text = namaRestoran[indexPath.row]
+    
+        cell.jenisDiskon.text = namaPromo[indexPath.row]
+        cell.durasiDiskon.text = durasi[indexPath.row]
+        cell.namaRestoran.text = namaRestoran[indexPath.row]
         
+        // Image Cellnya
         
+        AF.request(images[indexPath.row]).responseImage { response in
+            //debugPrint(response)
+            if case .success(let image) = response.result{
+                DispatchQueue.main.async {
+                    //print(image)
+                    cell.myImageVIew.image = image
+                }
+               
+            }
+            
+        }
         
         // Animasi Cellnya
         cell.alpha = 0
@@ -124,19 +149,34 @@ extension CouponViewController: UITableViewDelegate, UITableViewDataSource{
     // View Cell kalo dipencet
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+       
         let vc = storyboard?.instantiateViewController(identifier: "AfterPressedViewController") as! AfterPressedViewController
-        // PAss value Gambar Restoran
-        vc.gambarRestoran = UIImage(named: name[indexPath.row])!
+       
+      
         // Pass value text
         vc.namaRestorannya = namaRestoran[indexPath.row]
-        vc.jenisDiskonRestoran = jenisDiskon[indexPath.row]
+        vc.jenisDiskonRestoran = namaPromo[indexPath.row]
         vc.durasiDiskonRestoran = durasi[indexPath.row]
+        
+        // Pass Image
+        
+        AF.request(images[indexPath.row]).responseImage { response in
+            //debugPrint(response)
+            if case .success(let image) = response.result{
+                DispatchQueue.main.async {
+                    print(image)
+                    vc.MyImage.image = image
+
+                }
+                
+            }
+        }
+        
         
         self.navigationController?.pushViewController(vc, animated: true)
        
        
     }
-   
+  
 }
 
