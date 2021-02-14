@@ -44,6 +44,7 @@ class VoucherViewController: UIViewController {
     
     var userPointSebelumDipotong: Int?
     
+    var dispatch = DispatchGroup()
    
      
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
@@ -69,12 +70,28 @@ class VoucherViewController: UIViewController {
        
         print("\(tokenID!) dari Voucher")
        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = false
+        
+        // sebelum datanya keluar, user interactionnya di freeze biar gak nil
+        spinner.startAnimating()
+        spinner.isHidden = false
+        self.view.isUserInteractionEnabled = false
+        
         parseJSON()
+        
+        // Ini dia mastiin si ParseJSONnya itu ke run dulu baru yang .notify ini, diliat di func parseJSON itu ada dispatch.enter, itu buat mastiin yang dari enter - ending ke run dulu, baru bisa lanjut enable
+        dispatch.notify(queue: .main) {
+            self.view.isUserInteractionEnabled = true
+            self.spinner.isHidden = true
+            self.spinner.stopAnimating()
+        }
+        
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         // apus arraynya kalo user udah pindah screen
@@ -91,6 +108,8 @@ class VoucherViewController: UIViewController {
     
     // Nembak ke Faris
     func parseJSON(){
+        dispatch.enter()
+        
         let urlString   = "\(url.linkFaris)/api/getcoupon"
         
         let headers: HTTPHeaders = [ "Accept": "application/json",
@@ -164,6 +183,7 @@ class VoucherViewController: UIViewController {
             }
             
             self.myTable.reloadData()
+            self.dispatch.leave()
             
           case let .failure(error):
             

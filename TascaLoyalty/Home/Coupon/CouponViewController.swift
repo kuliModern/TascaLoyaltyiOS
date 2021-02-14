@@ -9,11 +9,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
 class CouponViewController: UIViewController{
     
    
     var tokenID: String?
   
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -25,16 +27,41 @@ class CouponViewController: UIViewController{
     
     var namaPromo = [String]()
     
+    var descPromo = [String]()
+    
+    var restoStatus = [String]()
+    
+    
+    var dispatch = DispatchGroup()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print("\(tokenID) dari coupon")
+       
         
     }
-    
+//
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        // sebelum datanya keluar, user interactionnya di freeze biar gak nil
+        spinner.isHidden = false
+        spinner.startAnimating()
+        self.view.isUserInteractionEnabled = false
+        print("sebelum parsing")
+        
         parseJSON()
+        
+        // Ini dia mastiin si ParseJSONnya itu ke run dulu baru yang .notify ini, diliat di func parseJSON itu ada dispatch.enter, itu buat mastiin yang dari enter - ending ke run dulu, baru bisa lanjut enable
+        dispatch.notify(queue: .main) {
+            self.view.isUserInteractionEnabled = true
+            print("sesudah parsing")
+            self.spinner.isHidden = true
+            self.spinner.stopAnimating()
+        }
+       
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -48,6 +75,7 @@ class CouponViewController: UIViewController{
     }
     
     func parseJSON(){
+        dispatch.enter()
             let urlString   = "\(url.linkFaris)/api/getpromotion"
     
             let headers: HTTPHeaders = [ "Accept": "application/json",
@@ -78,19 +106,27 @@ class CouponViewController: UIViewController{
                         
                         var fotoPromo = json["promotions"][x]["path_photo"].stringValue
                         self.images.append("\(fotoPromo)")
+                        
+                        var descPromo = json["promotions"][x]["description"].stringValue
+                        self.descPromo.append("\(descPromo)")
+                        
+                        var restoStatus = json["promotions"][x]["status"].stringValue
+                        self.restoStatus.append("\(restoStatus)")
                     }
                     
                    
                     self.tableView.reloadData()
+                    self.dispatch.leave()
                     
                 case let .failure(error):
         
                     print(error)
-       
+                    
       }
         
     }
-}
+        
+    }
    
     /*
     // MARK: - Navigation
@@ -115,14 +151,14 @@ extension CouponViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardTableViewCell
         
-    
-        cell.jenisDiskon.text = namaPromo[indexPath.row]
-        cell.durasiDiskon.text = durasi[indexPath.row]
-        cell.namaRestoran.text = namaRestoran[indexPath.row]
+        
+            cell.jenisDiskon.text = self.namaPromo[indexPath.row]
+            cell.durasiDiskon.text = self.durasi[indexPath.row]
+            cell.namaRestoran.text = self.namaRestoran[indexPath.row]
         
         // Image Cellnya
         
-        AF.request(images[indexPath.row]).responseImage { response in
+            AF.request(self.images[indexPath.row]).responseImage { response in
             //debugPrint(response)
             if case .success(let image) = response.result{
                 DispatchQueue.main.async {
@@ -133,6 +169,7 @@ extension CouponViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         }
+        
         
         // Animasi Cellnya
         cell.alpha = 0
@@ -157,7 +194,8 @@ extension CouponViewController: UITableViewDelegate, UITableViewDataSource{
         vc.namaRestorannya = namaRestoran[indexPath.row]
         vc.jenisDiskonRestoran = namaPromo[indexPath.row]
         vc.durasiDiskonRestoran = durasi[indexPath.row]
-        
+        vc.descPromonya = descPromo[indexPath.row]
+        vc.restoStatus = restoStatus[indexPath.row]
         // Pass Image
         
         AF.request(images[indexPath.row]).responseImage { response in

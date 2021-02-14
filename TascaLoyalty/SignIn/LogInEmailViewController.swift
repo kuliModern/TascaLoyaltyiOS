@@ -17,6 +17,9 @@ class LogInEmailViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+   
+    @IBOutlet weak var lanjutButton: UIButton!
+    
     var tokenUser: String = ""
    
     override func viewDidLoad() {
@@ -33,6 +36,9 @@ class LogInEmailViewController: UIViewController {
             .layerMaxXMinYCorner
         
         ]
+        // UI lanjut button biar bulet
+        lanjutButton.layer.masksToBounds = true
+        lanjutButton.layer.cornerRadius = 30
     }
     
     
@@ -89,6 +95,8 @@ class LogInEmailViewController: UIViewController {
                 
                 // ini kalo tokennya ada, berarti credentialsnya ada
             }else{
+
+                UserDefaults.standard.set(self.tokenUser, forKey: "isUserLogin")
                 self.performSegue(withIdentifier: "LoginToHome", sender: self)
             }
   

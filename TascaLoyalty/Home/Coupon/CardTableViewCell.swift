@@ -8,6 +8,7 @@
 import UIKit
 import ViewAnimator
 
+
 class CardTableViewCell: UITableViewCell {
 
    
@@ -16,15 +17,20 @@ class CardTableViewCell: UITableViewCell {
     @IBOutlet weak var jenisDiskon: UILabel!
     @IBOutlet weak var durasiDiskon: UILabel!
     
-    //    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        myImageVIew.layer.masksToBounds = true
+        myImageVIew.layer.cornerRadius = 20
        
     }
+//    override class func awakeFromNib() {
+//        super.awakeFromNib()
+//        gambarPromo.showAnimatedSkeleton()
+//
+//    }
     
 
 }

@@ -16,6 +16,8 @@
 		BB30AEC425CEF5430016ECB6 /* FilterByBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30AEC325CEF5430016ECB6 /* FilterByBrandViewController.swift */; };
 		BB30AEC725D270060016ECB6 /* OutletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30AEC625D270060016ECB6 /* OutletTableViewCell.swift */; };
 		BB30AECB25D276060016ECB6 /* OutletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30AECA25D276060016ECB6 /* OutletViewController.swift */; };
+		BB30AECE25D41FD40016ECB6 /* OutletPromoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30AECD25D41FD40016ECB6 /* OutletPromoTableViewCell.swift */; };
+		BB30AED125D427840016ECB6 /* OutletPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30AED025D427840016ECB6 /* OutletPromoViewController.swift */; };
 		BB31D3A125C904C000F9CD73 /* CardVoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB31D3A025C904C000F9CD73 /* CardVoucherTableViewCell.swift */; };
 		BB341EF825BDE32900DF27C6 /* LogInEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB341EF725BDE32900DF27C6 /* LogInEmailViewController.swift */; };
 		BB44F69825B94E2C001043D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB44F69725B94E2C001043D2 /* GoogleService-Info.plist */; };
@@ -51,6 +53,8 @@
 		BB30AEC325CEF5430016ECB6 /* FilterByBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByBrandViewController.swift; sourceTree = "<group>"; };
 		BB30AEC625D270060016ECB6 /* OutletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletTableViewCell.swift; sourceTree = "<group>"; };
 		BB30AECA25D276060016ECB6 /* OutletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletViewController.swift; sourceTree = "<group>"; };
+		BB30AECD25D41FD40016ECB6 /* OutletPromoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletPromoTableViewCell.swift; sourceTree = "<group>"; };
+		BB30AED025D427840016ECB6 /* OutletPromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletPromoViewController.swift; sourceTree = "<group>"; };
 		BB31D3A025C904C000F9CD73 /* CardVoucherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVoucherTableViewCell.swift; sourceTree = "<group>"; };
 		BB341EF725BDE32900DF27C6 /* LogInEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInEmailViewController.swift; sourceTree = "<group>"; };
 		BB44F69725B94E2C001043D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -139,6 +143,8 @@
 				BB64DBE125C3FD520049AEA9 /* CouponViewController.swift */,
 				BB2B4C3F25C520CF00FAC9DA /* CardTableViewCell.swift */,
 				BBB448C325C5B086003F03E6 /* AfterPressedViewController.swift */,
+				BB30AECD25D41FD40016ECB6 /* OutletPromoTableViewCell.swift */,
+				BB30AED025D427840016ECB6 /* OutletPromoViewController.swift */,
 			);
 			path = Coupon;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB30AECE25D41FD40016ECB6 /* OutletPromoTableViewCell.swift in Sources */,
 				BB31D3A125C904C000F9CD73 /* CardVoucherTableViewCell.swift in Sources */,
 				BBC7162A25B83E8E00940CFC /* LoginViewController.swift in Sources */,
 				BB8F210825CBB6E2004CC1C8 /* VoucherReceiptViewController.swift in Sources */,
@@ -376,6 +383,7 @@
 				BBBB69F825CB05AD00E0F87E /* PurchaseVoucherConfirmationViewController.swift in Sources */,
 				BB64DBE225C3FD520049AEA9 /* CouponViewController.swift in Sources */,
 				BBC7162E25B83EAD00940CFC /* RegisterViewController.swift in Sources */,
+				BB30AED125D427840016ECB6 /* OutletPromoViewController.swift in Sources */,
 				BB9CF65425B87D910073168B /* RegisterEmailViewController.swift in Sources */,
 				BB1011C925C051360072ED93 /* URL.swift in Sources */,
 				BBC7161125B8314E00940CFC /* ViewController.swift in Sources */,

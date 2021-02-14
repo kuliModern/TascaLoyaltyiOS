@@ -12,7 +12,7 @@ target 'TascaLoyalty' do
   pod 'SwipeableTabBarController'
   pod "ViewAnimator"
   pod 'SCLAlertView'
- 
+
 
   
 
